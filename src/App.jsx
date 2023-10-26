@@ -95,7 +95,7 @@ function App() {
         <>
           {requestError ? <div className="alert">{requestErrorMessage}</div> : null}
 
-          <h2>推荐使用英文描述</h2>
+          <h2>只有DALLE支持中文描述</h2>
           <div className="select-container">
             <select value={model} onChange={handleModelSelect}>
               <option value="kandinsky-v2.2">Kandinsky 2.2</option>
