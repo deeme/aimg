@@ -72,8 +72,7 @@ function App() {
       "stable-diffusion-v2.1": 10,
       "stable-diffusion-v1.5": 10,
       "deepfloyd-if": 4,
-      "material-diffusion": 8,
-      "dall-3": 10,
+      "dalle-3": 10,
     };
     setQuantity(Math.min(quantity, modelMaxImages[e.target.value]));
     setMaxQuantity(modelMaxImages[e.target.value]);
