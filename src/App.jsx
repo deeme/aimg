@@ -83,7 +83,7 @@ function App() {
     <div className="app-main">
       {loading ? (
         <>
-          <h2>Generating your unique images... Sit tight!</h2>
+          <h2>正在生成您独特的图片...请耐心等待！</h2>
           <div className="lds-ripple">
             <div></div>
             <div></div>
@@ -130,7 +130,7 @@ function App() {
 
           <br />
           <button onClick={generateImage} id="generate">
-            生成
+            点击生成
           </button>
           <DisplayImages />
         </>
