@@ -66,14 +66,14 @@ function App() {
   const handleModelSelect = (e) => {
     setModel(e.target.value);
     const modelMaxImages = {
-      "kandinsky-2.2": 10,
-      "kandinsky-2": 10,
+      "kandinsky-v2.2": 10,
+      "kandinsky-v2": 10,
       sdxl: 5,
-      "stable-diffusion-2.1": 10,
-      "stable-diffusion-1.5": 10,
+      "stable-diffusion-v2.1": 10,
+      "stable-diffusion-v1.5": 10,
       "deepfloyd-if": 4,
       "material-diffusion": 8,
-      "dall-e": 10,
+      "dall-3": 10,
     };
     setQuantity(Math.min(quantity, modelMaxImages[e.target.value]));
     setMaxQuantity(modelMaxImages[e.target.value]);
