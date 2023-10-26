@@ -115,7 +115,7 @@ function App() {
             placeholder={placeholder}
             onChange={(e) => setPrompt(e.target.value)}
             rows="10"
-            cols="40"
+            cols="35"
             autoFocus
             onKeyDown={(e) => {
               if (e.key === "Enter") {
