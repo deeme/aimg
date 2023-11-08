@@ -73,6 +73,17 @@ function App() {
       "stable-diffusion-v1.5": 10,
       "deepfloyd-if": 4,
       "dalle-3": 10,
+			"openjourney-xl": 4,
+			"openjourney-v4": 4,
+			"dreamshaper": 4,
+			"majicmixsombre": 4,
+			"pastelMixAnime": 4,
+			"absoluteReality": 4,
+			"anything": 4,
+			"meinamix": 4,
+			"deliberate": 4,
+			"revAnimated": 4,
+			"realisticVision": 4,
     };
     setQuantity(Math.min(quantity, modelMaxImages[e.target.value]));
     setMaxQuantity(modelMaxImages[e.target.value]);
@@ -104,6 +115,17 @@ function App() {
               <option value="stable-diffusion-v1.5">Stable Diffusion 1.5</option>
               <option value="deepfloyd-if">Deepfloyd IF</option>
               <option value="dalle-3">DALL-E</option>
+              <option value="openjourney-xl">openjourney-xl</option>
+              <option value="openjourney-v4">openjourney-v4</option>
+              <option value="dreamshaper">dreamshaper</option>
+              <option value="majicmixsombre">majicmixsombre</option>
+              <option value="pastelMixAnime">pastelMixAnime</option>
+              <option value="absoluteReality">absoluteReality</option>
+              <option value="anything">anything</option>
+              <option value="meinamix">meinamix</option>
+              <option value="deliberate">deliberate</option>
+              <option value="revAnimated">revAnimated</option>
+              <option value="realisticVision">realisticVision</option>
             </select>
 
             <ImageDownloader />
