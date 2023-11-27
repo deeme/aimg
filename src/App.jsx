@@ -131,12 +131,11 @@ function App() {
             <ImageDownloader />
           </div>
 
+
           <textarea
-            className="app-input"
+            className="flex h-20 w-full resize-none rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900"
             placeholder={placeholder}
             onChange={(e) => setPrompt(e.target.value)}
-            rows="10"
-            cols="35"
             autoFocus
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -145,12 +144,14 @@ function App() {
               }
             }}
           />
+
+
           <label htmlFor="quantity">图片数量:</label>
           <input id="quantity" type="range" min="1" max={maxQuantity} value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
           <span>{quantity}</span>
 
           <br />
-          <button onClick={generateImage} id="generate">
+          <button onClick={generateImage} id="generate" className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
             点击生成
           </button>
           <DisplayImages />
