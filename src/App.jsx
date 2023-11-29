@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const fetchImageModels = async () => {
-      const apiUrl = `https://deembear.top/models.json`;
+      const apiUrl = `models.json`;
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
