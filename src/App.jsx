@@ -12,11 +12,11 @@ function App() {
   const [quantity, setQuantity] = useState(5);
   const [model, setModel] = useState("sdxl");
   const [maxQuantity, setMaxQuantity] = useState(5);
-  //const [imageSize, setImageSize] = useState("1024x1024");
+  const [imageSize, setImageSize] = useState("1024x1024");
 
   const generateImage = async () => {
     setRequestError(false);
-    //setImageSize(imageSize);
+    setImageSize(imageSize);
     setPlaceholder(`Search ${prompt}...`);
     setPrompt(prompt);
     setLoading(true);
@@ -34,7 +34,7 @@ function App() {
           model: model,
           prompt: prompt,
           n: quantity,
-          //size: imageSize,
+          size: imageSize,
         }),
       });
 
