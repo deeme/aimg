@@ -12,27 +12,11 @@ function App() {
   const [quantity, setQuantity] = useState(5);
   const [model, setModel] = useState("sdxl");
   const [maxQuantity, setMaxQuantity] = useState(5);
-
-  const [imageModels, setImageModels] = useState([]);
-
-  useEffect(() => {
-    const fetchImageModels = async () => {
-      const apiUrl = `https://deembear.top/models.json`;
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        const imageModels = data.data.filter((model) => model.max_images);
-        setImageModels(imageModels);
-      } catch (error) {
-        console.error("Error fetching image models:", error);
-      }
-    };
-
-    fetchImageModels();
-  }, []);
+  const [imageSize, setImageSize] = useState("1024x1024");
 
   const generateImage = async () => {
     setRequestError(false);
+    setImageSize(imageSize);
     setPlaceholder(`Search ${prompt}...`);
     setPrompt(prompt);
     setLoading(true);
@@ -50,6 +34,7 @@ function App() {
           model: model,
           prompt: prompt,
           n: quantity,
+          size: imageSize,
         }),
       });
 
@@ -76,14 +61,29 @@ function App() {
   };
 
   const handleModelSelect = (e) => {
-    const selectedModelId = e.target.value;
-    const selectedModel = imageModels.find((model) => model.id === selectedModelId);
-    setModel(selectedModelId);
-
-    if (selectedModel) {
-      setMaxQuantity(selectedModel.max_images);
-    }
-    setQuantity(Math.min(quantity, maxQuantity));
+    setModel(e.target.value);
+    const modelMaxImages = {
+      "kandinsky-v2.2": 10,
+      "kandinsky-v2": 10,
+      sdxl: 5,
+      "stable-diffusion-v2.1": 10,
+      "stable-diffusion-v1.5": 10,
+      "deepfloyd-if": 4,
+      "dalle-3": 10,
+			"openjourney-xl": 4,
+			"openjourney-v4": 4,
+			"dreamshaper": 4,
+			"majicmixsombre": 4,
+			"pastelMixAnime": 4,
+			"absoluteReality": 4,
+			"anything": 4,
+			"meinamix": 4,
+			"deliberate": 4,
+			"revAnimated": 4,
+			"realisticVision": 4,
+    };
+    setQuantity(Math.min(quantity, modelMaxImages[e.target.value]));
+    setMaxQuantity(modelMaxImages[e.target.value]);
   };
 
   return (
@@ -105,11 +105,24 @@ function App() {
           <h2>利用多种人工智能模型创建图片</h2>
           <div className="select-container">
             <select value={model} onChange={handleModelSelect}>
-              {imageModels.map((imageModel) => (
-                <option key={imageModel.id} value={imageModel.id}>
-                  {imageModel.id}
-                </option>
-              ))}
+              <option value="kandinsky-v2.2">Kandinsky 2.2</option>
+              <option value="kandinsky-v2">Kandinsky 2</option>
+              <option value="sdxl">SDXL</option>
+              <option value="stable-diffusion-v2.1">Stable Diffusion 2.1</option>
+              <option value="stable-diffusion-v1.5">Stable Diffusion 1.5</option>
+              <option value="deepfloyd-if">Deepfloyd IF</option>
+              <option value="dalle-3">DALL-E</option>
+              <option value="openjourney-xl">openjourney-xl</option>
+              <option value="openjourney-v4">openjourney-v4</option>
+              <option value="dreamshaper">dreamshaper</option>
+              <option value="majicmixsombre">majicmixsombre</option>
+              <option value="pastelMixAnime">pastelMixAnime</option>
+              <option value="absoluteReality">absoluteReality</option>
+              <option value="anything">anything</option>
+              <option value="meinamix">meinamix</option>
+              <option value="deliberate">deliberate</option>
+              <option value="revAnimated">revAnimated</option>
+              <option value="realisticVision">realisticVision</option>
             </select>
 
             <ImageDownloader />
