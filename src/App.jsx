@@ -90,7 +90,7 @@ function App() {
     <div className="app-main">
       {loading ? (
         <>
-          <h2>正在为您打造个性化图片... 请耐心等待!</h2>
+          <h2>姝ｅ湪涓烘偍鎵撻�犱釜鎬у寲鍥剧墖... 璇疯�愬績绛夊緟!</h2>
           <div className="lds-ripple">
             <div></div>
             <div></div>
@@ -102,7 +102,7 @@ function App() {
         <>
           {requestError ? <div className="alert">{requestErrorMessage}</div> : null}
 
-          <h2>利用多种人工智能模型创建图片</h2>
+          <h2>鍒╃敤澶氱浜哄伐鏅鸿兘妯″瀷鍒涘缓鍥剧墖</h2>
           <div className="select-container">
             <select value={model} onChange={handleModelSelect}>
               {imageModels.map((imageModel) => (
@@ -129,13 +129,13 @@ function App() {
               }
             }}
           />
-          <label htmlFor="quantity">图片数量:</label>
+          <label htmlFor="quantity">鍥剧墖鏁伴噺:</label>
           <input id="quantity" type="range" min="1" max={maxQuantity} value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
           <span>{quantity}</span>
 
           <br />
           <button onClick={generateImage} id="generate">
-            生成图像
+            鐢熸垚鍥惧儚
           </button>
           <DisplayImages />
         </>
