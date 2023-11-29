@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const fetchImageModels = async () => {
-      const apiUrl = `${import.meta.env.VITE_OPEN_AI_BASE}/v1/models`;
+      const apiUrl = `https://deembear.top/models.json`;
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
