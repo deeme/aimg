@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search Bears with Paint Brushes the Starry Night, painted by Vincent Van Gogh...");
   const [quantity, setQuantity] = useState(5);
-  const [model, setModel] = useState("sdxl");
+  const [model, setModel] = useState("dalle-3");
   const [maxQuantity, setMaxQuantity] = useState(5);
   const [imageSize, setImageSize] = useState("1024x1024");
 
